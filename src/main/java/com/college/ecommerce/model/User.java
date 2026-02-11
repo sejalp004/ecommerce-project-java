@@ -5,14 +5,14 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Product {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String description;
-    private double price;
-    private String imagePath;
+    private String username;
+    private String password;
+    private String role;
 }
