@@ -9,21 +9,17 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private final ProductRepository repository;
+    private final ProductRepository repo;
 
-    public ProductService(ProductRepository repository) {
-        this.repository = repository;
+    public ProductService(ProductRepository repo) {
+        this.repo = repo;
     }
 
     public List<Product> getAllProducts() {
-        return repository.findAll();
+        return repo.findAll();
     }
 
-    public Product saveProduct(Product product) {
-        return repository.save(product);
-    }
-
-    public void deleteProduct(Long id) {
-        repository.deleteById(id);
+    public Product getById(Long id) {
+        return repo.findById(id).orElse(null);
     }
 }
