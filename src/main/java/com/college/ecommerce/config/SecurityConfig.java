@@ -19,6 +19,7 @@ public class SecurityConfig {
                         .requestMatchers("/add", "/save").hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )
+
                 .formLogin(form -> form
                         .loginPage("/login")
                         .permitAll()
@@ -38,4 +39,8 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(admin);
     }
+
+                
+    }
+ 
 }

@@ -1,9 +1,8 @@
 package com.college.ecommerce.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import java.time.LocalDateTime;
 
-@Data
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -12,6 +11,25 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
-    private String orderDate;
+    private LocalDateTime orderDate;
+
+    public Order() {
+        this.orderDate = LocalDateTime.now();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
 }

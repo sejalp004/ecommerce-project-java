@@ -3,27 +3,22 @@ package com.college.ecommerce.service;
 import com.college.ecommerce.model.Product;
 import com.college.ecommerce.repository.ProductRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 public class ProductService {
 
-    private final ProductRepository repository;
+    private final ProductRepository repo;
 
-    public ProductService(ProductRepository repository) {
-        this.repository = repository;
+    public ProductService(ProductRepository repo) {
+        this.repo = repo;
     }
 
     public List<Product> getAllProducts() {
-        return repository.findAll();
+        return repo.findAll();
     }
 
-    public Product saveProduct(Product product) {
-        return repository.save(product);
-    }
-
-    public void deleteProduct(Long id) {
-        repository.deleteById(id);
+    public void saveProduct(Product product) {
+        repo.save(product);
     }
 }
